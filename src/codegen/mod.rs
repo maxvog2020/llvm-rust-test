@@ -1,5 +1,6 @@
 mod code_gen;
-mod sum_func;
+mod jit_compile_sum;
 
 pub use code_gen::CodeGen;
-pub use sum_func::SumFunc;
+pub use jit_compile_sum::{SumFunc, JitCompileSum};
+

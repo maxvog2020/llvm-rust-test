@@ -1,9 +1,8 @@
 mod codegen;
 use codegen::CodeGen;
-use codegen::SumFunc;
+use codegen::JitCompileSum;
 
 use inkwell::context::Context;
-use inkwell::execution_engine::JitFunction;
 use inkwell::OptimizationLevel;
 
 fn main() {
@@ -17,8 +16,7 @@ fn main() {
 fn test_sum_func_call() {
     let context = Context::create();
     let codegen = CodeGen::new(&context, OptimizationLevel::Aggressive);
-
-    let sum: JitFunction<SumFunc> = codegen.jit_compile_sum().unwrap();
+    let sum = codegen.jit_compile_sum().unwrap();
 
     let (x, y, z) = (1, 2, 3);
 
