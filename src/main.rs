@@ -14,7 +14,7 @@ fn main() {
 }
 
 #[test]
-fn test_call() {
+fn test_sum_func_call() {
     let context = Context::create();
     let codegen = CodeGen::new(&context, OptimizationLevel::Aggressive);
 
