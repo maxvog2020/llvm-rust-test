@@ -18,9 +18,16 @@ fn test_sum_func_call() {
     let codegen = CodeGen::new(&context, OptimizationLevel::Aggressive);
     let sum = codegen.jit_compile_sum().unwrap();
 
-    let (x, y, z) = (1, 2, 3);
+    let collections = [
+        (1, 2, 3),
+        (3, 4, 2),
+        (4, 2, 1),
+        (1, 1, 1),
+        (4, 0, 0),
+        (0, 0, 2),
+    ];
 
-    unsafe {
-        assert_eq!(sum.call(x, y, z), x + y + z);
+    for (x, y, z) in collections {
+        unsafe { assert_eq!(sum.call(x, y, z), x + y + z); }
     }
 }
