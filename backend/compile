@@ -1,0 +1,1 @@
+/home/maxvog2020/Documents/LLVM/llvm-15.0.0/bin/llc -O3 --incremental-linker-compatible --filetype=obj code.ll
